@@ -1,0 +1,77 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Criar projeto Vite React",
+			"type": "shell",
+			"command": "npm create vite@latest . -- --template react",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Instalar dependências principais",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Instalar Tailwind, Framer Motion, react-icons, react-photo-gallery, EmailJS",
+			"type": "shell",
+			"command": "npm install tailwindcss postcss autoprefixer framer-motion react-icons react-photo-gallery emailjs-com",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Init Tailwind",
+			"type": "shell",
+			"command": "npx tailwindcss init -p",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Instalar fontes Playfair Display e Inter",
+			"type": "shell",
+			"command": "npm install @fontsource/playfair-display @fontsource/inter",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Rodar projeto localmente",
+			"type": "shell",
+			"command": "npm run dev",
+			"args": [],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Instalar dependências do projeto",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Rodar projeto localmente (Vite)",
+			"type": "shell",
+			"command": "npm run dev",
+			"args": [],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

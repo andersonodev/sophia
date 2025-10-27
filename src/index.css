@@ -1,0 +1,38 @@
+@import '@fontsource/playfair-display';
+@import '@fontsource/inter';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-offwhite text-dark font-sans;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: theme('colors.earth');
+  color: theme('colors.offwhite');
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 20%, rgba(163, 177, 138, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(218, 210, 188, 0.18), transparent 60%),
+    radial-gradient(circle at 50% 80%, rgba(163, 177, 138, 0.1), transparent 55%);
+  opacity: 0.8;
+  mix-blend-mode: soft-light;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
