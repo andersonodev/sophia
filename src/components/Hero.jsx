@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const images = [
-  require('../../imagens/xvsophia0.jpg'),
-  require('../../imagens/xvsophia01.jpg'),
-  require('../../imagens/xvsophia02.jpg'),
-  require('../../imagens/xvsophia03.jpg'),
-  require('../../imagens/xvsophia04.jpg'),
-  require('../../imagens/xvsophia05.jpg'),
-];
+import img0 from '../../imagens/xvsophia0.jpg';
+import img1 from '../../imagens/xvsophia01.jpg';
+import img2 from '../../imagens/xvsophia02.jpg';
+import img3 from '../../imagens/xvsophia03.jpg';
+import img4 from '../../imagens/xvsophia04.jpg';
+import img5 from '../../imagens/xvsophia05.jpg';
+
+const images = [img0, img1, img2, img3, img4, img5];
 
 const textVariant = {
   hidden: { opacity: 0, y: 30 },
