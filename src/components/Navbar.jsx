@@ -70,7 +70,7 @@ export default function Navbar() {
             animate={{ opacity: [0.2, 0.4, 0.2] }}
             transition={{ duration: 6, repeat: Infinity, repeatType: 'mirror' }}
           />
-          Sopa sitio
+          Sopa Sítio
         </motion.a>
         <ul className="hidden items-center gap-8 text-sm font-medium text-dark md:flex">
           {links.map((link) => (
