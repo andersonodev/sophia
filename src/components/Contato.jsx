@@ -65,8 +65,8 @@ export default function Contato() {
           <span className="text-xs uppercase tracking-[0.4em] text-earth">Contato</span>
           <h2 className="mt-4 font-display text-3xl text-dark sm:text-4xl">Planeje seu evento com o Sopa Sítio.</h2>
           <p className="mt-6 text-sm text-dark/75">
-            Conte um pouco sobre a experiência que você imagina. Retornaremos com disponibilidade, propostas e sugestões
-            personalizadas para a Barra da Tijuca.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique arcu vitae maximus tempus, sed dictum
+            neque gravida.
           </p>
           <div className="mt-8 space-y-4">
             <p className="text-sm text-dark/80">
@@ -98,7 +98,7 @@ export default function Contato() {
             <div className="rounded-2xl bg-earth/10 p-8 text-center text-dark">
               <h3 className="font-display text-2xl text-earth">Mensagem enviada!</h3>
               <p className="mt-3 text-sm text-dark/80">
-                Logo entraremos em contato com as informações do seu evento no Sopa Sítio.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis nisl vitae aliquet tempor.
               </p>
               <button
                 type="button"

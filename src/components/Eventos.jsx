@@ -6,32 +6,32 @@ const eventos = [
   {
     icon: FaHeart,
     title: 'Casamentos & Mini Weddings',
-    desc: 'Cerimônias ao ar livre com altar sob as árvores, lounges elegantes e pista de dança integrada ao jardim.',
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac odio at elit bibendum malesuada.',
   },
   {
     icon: FaBirthdayCake,
     title: 'Aniversários & Debuts',
-    desc: 'Produções autorais com espaços instagramáveis, cenografia personalizada e experiências gastronômicas.',
+    desc: 'Suspendisse viverra justo vitae neque maximus, vitae vestibulum lorem pulvinar. Phasellus euismod velit at orci.',
   },
   {
     icon: FaGlassCheers,
     title: 'Confraternizações',
-    desc: 'Eventos corporativos, lançamentos ou celebrações com estrutura completa, ambientação premium e staff dedicado.',
+    desc: 'Praesent feugiat tellus sed erat varius, vitae rutrum risus fermentum. Sed dignissim erat at tristique blandit.',
   },
   {
     icon: FaSpa,
     title: 'Retiros & Bem-estar',
-    desc: 'Programações que valorizam o silêncio, o contato com a natureza, salas multiuso e suporte logístico completo.',
+    desc: 'Integer sit amet ante sit amet massa ultricies rhoncus. Vestibulum ac erat vitae enim interdum accumsan.',
   },
   {
     icon: FaUsers,
     title: 'Workshops & Produções',
-    desc: 'Sessões fotográficas, masterclasses e pequenos congressos com tecnologia, catering e apoio local.',
+    desc: 'Morbi vitae turpis sed nulla scelerisque interdum. Cras sed neque a elit cursus rhoncus id non erat.',
   },
   {
     icon: FaLeaf,
     title: 'Experiências Sob Medida',
-    desc: 'Propostas exclusivas como elopements, pedidos de casamento e encontros privados com curadoria afetiva.',
+    desc: 'Vivamus et sapien vel nibh volutpat dictum. Pellentesque habitant morbi tristique senectus et netus.',
   },
 ];
 
@@ -56,10 +56,10 @@ export default function Eventos() {
           transition={{ duration: 0.8 }}
         >
           <span className="text-xs uppercase tracking-[0.4em] text-earth">Eventos</span>
-          <h2 className="mt-4 font-display text-3xl text-dark sm:text-4xl">Versátil para celebrações inesquecíveis.</h2>
+          <h2 className="mt-4 font-display text-3xl text-dark sm:text-4xl">Lorem ipsum dolor sit amet.</h2>
           <p className="mt-5 text-sm text-dark/75 sm:text-base">
-            Do pedido ao pós-evento, desenvolvemos projetos sob medida na Barra da Tijuca, com acervo próprio, equipe
-            parceira e a natureza como pano de fundo.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet, massa non imperdiet dapibus, sem justo
+            feugiat augue, vitae luctus risus urna et turpis.
           </p>
         </motion.div>
 

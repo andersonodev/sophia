@@ -1,42 +1,42 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
-
 const slides = [
   {
     src: 'https://images.unsplash.com/photo-1520854221050-0f4caff449fb?auto=format&fit=crop&w=1920&q=80',
-    alt: 'Casal celebrando casamento ao ar livre',
-    title: 'Aurora Celebration',
-    caption:
-      'Cerimônia ao pôr do sol com iluminação cênica e florais aéreos que transformam o jardim em um cenário suspenso.',
+    alt: 'Mesa de doces com bolo floral',
+    title: 'Lorem Ipsum Dolor',
+    caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in condimentum mi.',
   },
   {
     src: 'https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1920&q=80',
-    alt: 'Noivos caminhando sob luzes pendentes',
-    title: 'Votos sob Estrelas',
-    caption:
-      'Uma passarela de luzes e folhagens conduz os noivos para o altar, criando um corredor mágico em meio à natureza.',
+    alt: 'Estrutura de lounge ao ar livre',
+    title: 'Sit Amet Consectetur',
+    caption: 'Suspendisse potenti. Nam non turpis ac dolor vulputate aliquet vitae non ipsum.',
   },
   {
     src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=80',
-    alt: 'Recepção de casamento com mesa decorada',
-    title: 'Banquete Poético',
-    caption:
-      'Louças artesanais, arranjos orgânicos e velas suspensas compõem a mesa de jantar de um casamento inesquecível.',
+    alt: 'Bolo decorado com flores',
+    title: 'Adipiscing Elit',
+    caption: 'Praesent vitae lorem nec nisi commodo dictum. Phasellus finibus metus a mauris posuere finibus.',
   },
   {
     src: 'https://images.unsplash.com/photo-1520854221050-0a4489a1a3ca?auto=format&fit=crop&w=1920&q=80',
-    alt: 'Noivos celebrando ao lado de amigos com sparkles',
-    title: 'Sparks of Love',
-    caption:
-      'Saída triunfal dos recém-casados, ladeados por sparklers que iluminam sorrisos e brindes de quem mais importa.',
+    alt: 'Bolo artístico com flores e velas',
+    title: 'Sed Do Eiusmod',
+    caption: 'Aliquam erat volutpat. Mauris ac justo at sem posuere facilisis sed quis urna.',
   },
   {
     src: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1920&q=80',
-    alt: 'Mesa posta elegante em casamento ao ar livre',
-    title: 'Recepção de Autor',
-    caption:
-      'Mesa posta contemporânea com peças artesanais, composições em camadas e luz de velas a perder de vista.',
+    alt: 'Decoração floral em evento',
+    title: 'Tempor Incididunt',
+    caption: 'Curabitur id augue magna. Donec in nulla ipsum. Nulla facilisi. Etiam aliquet augue leo.',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&w=1920&q=80',
+    alt: 'Mesas decoradas em salão de eventos',
+    title: 'Ut Labore Et Dolore',
+    caption: 'Morbi sed eros maximus, laoreet diam sit amet, iaculis nunc. Donec vel enim et turpis tincidunt cursus.',
   },
 ];
 

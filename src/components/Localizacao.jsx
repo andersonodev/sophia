@@ -42,7 +42,7 @@ export default function Localizacao() {
         >
           <span className="text-xs uppercase tracking-[0.4em] text-earth">Localização</span>
           <h2 className="mt-4 font-display text-3xl text-dark sm:text-4xl">
-            O Sopa Sítio fica na Barra da Tijuca, Rio de Janeiro.
+            Sopa Sítio na Barra da Tijuca: lorem ipsum dolor sit amet.
           </h2>
         </motion.div>
 
@@ -86,8 +86,8 @@ export default function Localizacao() {
                 <span className="font-semibold uppercase tracking-wide text-sm">Barra da Tijuca</span>
               </div>
               <p className="mt-4 text-sm text-dark/75">
-                Fácil acesso pela Av. das Américas, a poucos minutos das principais vias da Zona Oeste. Estacionamento
-                amplo e apoio logístico para convidados e fornecedores.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan, nunc ut ornare congue, ipsum nisl
+                congue sem, id pulvinar urna nulla vitae orci.
               </p>
             </div>
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">

@@ -8,27 +8,12 @@ import imgFour from '../../imagens/xvsophia04.jpg';
 import imgFive from '../../imagens/xvsophia05.jpg';
 
 const photos = [
-  { src: imgHero, orientation: 'landscape', title: 'Cerimônia no jardim ao pôr do sol' },
-  { src: imgOne, orientation: 'landscape', title: 'Recepção com lounges e luz cênica' },
-  { src: imgTwo, orientation: 'portrait', title: 'Detalhes florais na Barra da Tijuca' },
-  { src: imgThree, orientation: 'landscape', title: 'Deck de celebração com luz âmbar' },
-  { src: imgFour, orientation: 'landscape', title: 'Espaço externo integrado à natureza' },
-  { src: imgFive, orientation: 'landscape', title: 'Área coberta para banquetes autorais' },
-  {
-    src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1280&q=80',
-    orientation: 'portrait',
-    title: 'Quis nostrud exercitation',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1280&q=80',
-    orientation: 'landscape',
-    title: 'Ullamco laboris nisi',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&w=1280&q=80',
-    orientation: 'landscape',
-    title: 'Ut aliquip ex ea commodo',
-  },
+  { src: imgHero, orientation: 'landscape', title: 'Lorem ipsum dolor sit amet' },
+  { src: imgOne, orientation: 'landscape', title: 'Consectetur adipiscing elit' },
+  { src: imgTwo, orientation: 'portrait', title: 'Sed do eiusmod tempor' },
+  { src: imgThree, orientation: 'landscape', title: 'Incididunt ut labore' },
+  { src: imgFour, orientation: 'landscape', title: 'Et dolore magna aliqua' },
+  { src: imgFive, orientation: 'landscape', title: 'Ut enim ad minim veniam' },
 ];
 
 export default function Galeria() {
@@ -47,7 +32,7 @@ export default function Galeria() {
           <span className="text-xs uppercase tracking-[0.4em] text-earth">Galeria</span>
           <h2 className="mt-4 font-display text-3xl text-dark sm:text-4xl">Memórias criadas no Sopa Sítio.</h2>
           <p className="mt-5 text-sm text-dark/75 sm:text-base">
-            Um passeio por casamentos, mini weddings e produções que aconteceram em meio aos jardins da Barra da Tijuca.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ipsum aliquet, varius lorem id, ultrices erat.
           </p>
         </motion.div>
 
@@ -122,7 +107,7 @@ export default function Galeria() {
                 className="absolute right-4 top-4 rounded-full bg-offwhite/90 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-dark shadow-soft"
                 onClick={() => setSelectedPhoto(null)}
               >
-                Fechar lorem
+                Fechar
               </button>
             </motion.figure>
           </motion.div>

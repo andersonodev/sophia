@@ -4,21 +4,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 const depoimentos = [
   {
     nome: 'Marina & Felipe',
-    evento: 'Casamento ao entardecer',
+    evento: 'Celebration',
     frase:
-      'Cada detalhe superou nossas expectativas. O Sopa Sítio tem uma energia única e a equipe cuidou de nós como se fôssemos da família.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis, nisi nec convallis viverra, lacus sem rutrum felis.',
   },
   {
     nome: 'Ana Paula',
-    evento: 'Mini wedding intimista',
+    evento: 'Gathering',
     frase:
-      'Queríamos um ambiente acolhedor, com boa gastronomia e muita natureza. Encontramos tudo isso, e ainda fomos surpreendidos pela curadoria impecável.',
+      'Suspendisse interdum diam vitae urna convallis, vitae ullamcorper sem euismod. Pellentesque a sem id libero suscipit viverra.',
   },
   {
     nome: 'Grupo Essência',
-    evento: 'Retiro de bem-estar',
+    evento: 'Retreat',
     frase:
-      'Silêncio, verde e uma logística impecável. Pudemos focar na programação porque o time do Sopa Sítio cuidou de toda a infraestrutura.',
+      'Integer ultricies mi ac sapien accumsan, sit amet elementum purus tincidunt. Mauris id urna a lacus placerat tristique.',
   },
 ];
 

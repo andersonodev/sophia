@@ -83,7 +83,7 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          Natureza • Sofisticação • Barra da Tijuca
+          Lorem • Ipsum • Dolor
         </motion.span>
         <motion.h1
           className="font-display text-4xl leading-tight text-dark sm:text-5xl md:text-6xl"
@@ -92,7 +92,7 @@ export default function Hero() {
           animate="visible"
           custom={0.2}
         >
-          Celebre no Sopa Sítio, o refúgio de eventos na Barra da Tijuca.
+          Celebre no Sopa Sítio, lorem ipsum dolor sit amet consectetur.
         </motion.h1>
         <motion.p
           className="mt-6 max-w-2xl text-base text-dark/80 sm:text-lg"
@@ -101,8 +101,8 @@ export default function Hero() {
           animate="visible"
           custom={0.4}
         >
-          Jardins tropicais, infraestrutura boutique e uma equipe dedicada para transformar casamentos, aniversários e
-          retiros em experiências memoráveis.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et
+          malesuada fames ac turpis egestas.
         </motion.p>
         <motion.div
           className="mt-10 flex flex-wrap items-center justify-center gap-4"

@@ -6,16 +6,16 @@ import imageThree from '../../imagens/xvsophia03.jpg';
 
 const highlights = [
   {
-    heading: 'Natureza que abraça',
-    copy: 'Jardins integrados à mata nativa, espelho d’água e gramados amplos garantem um cenário orgânico e inesquecível.',
+    heading: 'Lorem ipsum dolor',
+    copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nulla ac neque fermentum porttitor.',
   },
   {
-    heading: 'Infraestrutura boutique',
-    copy: 'Salão climatizado, lounge coberto, suíte dos noivos e copa de apoio oferecem conforto total para convidados e fornecedores.',
+    heading: 'Sit amet consectetur',
+    copy: 'Integer feugiat, neque sed varius aliquet, ipsum erat finibus lectus, et accumsan velit arcu sed mauris.',
   },
   {
-    heading: 'Curadoria personalizada',
-    copy: 'Equipe dedicada para acompanhar cronograma, fornecedores e estilo do evento, do pré-wedding ao dia seguinte.',
+    heading: 'Adipiscing elit',
+    copy: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean id massa vitae eros euismod commodo.',
   },
 ];
 
@@ -38,7 +38,7 @@ export default function Sobre() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Sopa Sítio: atmosfera acolhedora entre o verde da Barra da Tijuca.
+            Sopa Sítio: lorem ipsum dolor sit amet in Barra da Tijuca.
           </motion.h2>
           <motion.p
             className="text-dark/80"
@@ -47,9 +47,8 @@ export default function Sobre() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Localizado na Barra da Tijuca, o Sopa Sítio é o cenário ideal para casamentos, aniversários e celebrações ao
-            ar livre. Unimos natureza tropical, infraestrutura impecável e uma curadoria afetiva em cada detalhe para
-            criar experiências memoráveis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in tortor vel tellus fermentum auctor nec vitae
+            lacus. Integer aliquam, lorem id sagittis tincidunt, urna erat luctus lectus, vitae commodo odio ipsum vel sem.
           </motion.p>
           <div className="space-y-5">
             {highlights.map((item) => (
