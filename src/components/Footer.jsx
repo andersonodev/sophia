@@ -12,13 +12,22 @@ export default function Footer() {
       transition={{ duration: 0.6 }}
     >
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-center text-sm text-dark/80 md:flex-row md:justify-between">
-        <p className="font-display text-lg text-dark">Projeto Lorem</p>
-        <p>contato@loremipsum.com • (00) 00000-0000</p>
+        <p className="font-display text-lg text-dark">Sopa Sítio</p>
+        <p>
+          <a className="underline-offset-4 hover:underline" href="mailto:eventos@sopasito.com">
+            eventos@sopasito.com
+          </a>{' '}
+          •{' '}
+          <a className="underline-offset-4 hover:underline" href="tel:+5521981430186">
+            (21) 98143-0186
+          </a>
+        </p>
         <div className="flex gap-4">
           <motion.a
-            href="https://instagram.com/"
+            href="https://www.instagram.com/sopasitio/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram do Sopa Sítio"
             className="rounded-full border border-sand p-2 text-dark transition-colors hover:text-earth"
             whileHover={{ y: -3, boxShadow: '0 12px 24px rgba(163,177,138,0.25)' }}
             whileTap={{ scale: 0.95 }}
@@ -29,6 +38,7 @@ export default function Footer() {
             href="https://wa.me/5521981430186"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Enviar mensagem para o Sopa Sítio no WhatsApp"
             className="rounded-full border border-sand p-2 text-dark transition-colors hover:text-earth"
             whileHover={{ y: -3, boxShadow: '0 12px 24px rgba(163,177,138,0.25)' }}
             whileTap={{ scale: 0.95 }}

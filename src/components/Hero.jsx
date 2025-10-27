@@ -10,6 +10,7 @@ import img5 from '../../imagens/xvsophia05.jpg';
 
 const images = [img0, img1, img2, img3, img4, img5];
 
+
 const textVariant = {
   hidden: { opacity: 0, y: 30 },
   visible: (delay = 0) => ({
