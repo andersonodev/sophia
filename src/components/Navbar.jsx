@@ -100,7 +100,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="absolute right-4 top-4 w-[calc(100%-2rem)] max-w-xs rounded-3xl bg-offwhite p-6 shadow-soft"
+              className="absolute right-4 top-4 w-[calc(100vw-2rem)] max-w-xs rounded-3xl bg-offwhite p-6 shadow-soft"
               initial={{ x: 40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: 40, opacity: 0 }}

@@ -1,35 +1,29 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import imgHero from '../../imagens/xvsophia0.jpg';
-import imgOne from '../../imagens/xvsophia01.jpg';
-import imgTwo from '../../imagens/xvsophia02.jpg';
-import imgThree from '../../imagens/xvsophia03.jpg';
-import imgFour from '../../imagens/xvsophia04.jpg';
-import imgFive from '../../imagens/xvsophia05.jpg';
 
-const photos = [
-  { src: imgHero, orientation: 'landscape', title: 'Cerimônia no jardim ao pôr do sol' },
-  { src: imgOne, orientation: 'landscape', title: 'Recepção com lounges e luz cênica' },
-  { src: imgTwo, orientation: 'portrait', title: 'Detalhes florais na Barra da Tijuca' },
-  { src: imgThree, orientation: 'landscape', title: 'Deck de celebração com luz âmbar' },
-  { src: imgFour, orientation: 'landscape', title: 'Espaço externo integrado à natureza' },
-  { src: imgFive, orientation: 'landscape', title: 'Área coberta para banquetes autorais' },
-  {
-    src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1280&q=80',
-    orientation: 'portrait',
-    title: 'Quis nostrud exercitation',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1280&q=80',
+// Importa automaticamente todas as imagens da pasta /src/imagens
+// Suporta .jpg, .jpeg e .png
+const importedImages = import.meta.glob('../../imagens/*.{jpg,jpeg,png}', { eager: true });
+
+// Converte o objeto retornado por import.meta.glob em uma lista de fotos
+const photosFromFolder = Object.keys(importedImages).map((path) => {
+  const fileName = path.split('/').pop(); // exemplo: "xvsophia01.jpg"
+  const cleanTitle = fileName
+    .replace(/\.[^/.]+$/, '') // remove extensão
+    .replace(/[-_]/g, ' ') // substitui - e _ por espaço
+    .replace(/\d+/g, '') // remove números
+    .trim();
+
+  return {
+    src: importedImages[path].default,
     orientation: 'landscape',
-    title: 'Ullamco laboris nisi',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&w=1280&q=80',
-    orientation: 'landscape',
-    title: 'Ut aliquip ex ea commodo',
-  },
-];
+    title: cleanTitle ? cleanTitle.charAt(0).toUpperCase() + cleanTitle.slice(1) : '',
+  };
+});
+
+
+// Define qual lista usar
+const photos = photosFromFolder.length > 0 ? photosFromFolder : fallbackPhotos;
 
 export default function Galeria() {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
@@ -45,7 +39,9 @@ export default function Galeria() {
           transition={{ duration: 0.8 }}
         >
           <span className="text-xs uppercase tracking-[0.4em] text-earth">Galeria</span>
-          <h2 className="mt-4 font-display text-3xl text-dark sm:text-4xl">Memórias criadas no Sopa Sítio.</h2>
+          <h2 className="mt-4 font-display text-3xl text-dark sm:text-4xl">
+            Memórias criadas no Sopa Sítio.
+          </h2>
           <p className="mt-5 text-sm text-dark/75 sm:text-base">
             Um passeio por casamentos, mini weddings e produções que aconteceram em meio aos jardins da Barra da Tijuca.
           </p>
@@ -65,6 +61,7 @@ export default function Galeria() {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           />
+
           {photos.map((photo, index) => (
             <motion.button
               type="button"
@@ -80,7 +77,7 @@ export default function Galeria() {
             >
               <img
                 src={photo.src}
-                alt={photo.title}
+                alt={photo.title || `Foto ${index + 1}`}
                 className="max-h-[460px] w-full object-cover transition duration-500 group-hover:scale-105"
                 loading={index > 2 ? 'lazy' : 'eager'}
               />
@@ -111,7 +108,11 @@ export default function Galeria() {
               transition={{ duration: 0.4, ease: 'easeOut' }}
               onClick={(event) => event.stopPropagation()}
             >
-              <img src={selectedPhoto.src} alt={selectedPhoto.title} className="h-full w-full object-cover" />
+              <img
+                src={selectedPhoto.src}
+                alt={selectedPhoto.title}
+                className="h-full w-full object-cover"
+              />
               {selectedPhoto.title && (
                 <figcaption className="absolute bottom-0 left-0 right-0 bg-dark/60 p-4 text-center text-sm font-medium text-offwhite">
                   {selectedPhoto.title}
@@ -122,7 +123,7 @@ export default function Galeria() {
                 className="absolute right-4 top-4 rounded-full bg-offwhite/90 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-dark shadow-soft"
                 onClick={() => setSelectedPhoto(null)}
               >
-                Fechar lorem
+                Fechar
               </button>
             </motion.figure>
           </motion.div>

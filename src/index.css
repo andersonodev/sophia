@@ -4,27 +4,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ----------------------------- */
+/* 🧭 Configurações globais */
+/* ----------------------------- */
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* 🔒 evita scroll lateral */
+  width: 100%;
 }
 
 body {
   @apply bg-offwhite text-dark font-sans;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden; /* 🔒 reforço contra rolagem lateral */
+  width: 100%;
 }
 
+/* Seleção de texto personalizada */
 ::selection {
   background-color: theme('colors.earth');
   color: theme('colors.offwhite');
 }
 
+/* ----------------------------- */
+/* ✨ Fundo decorativo global */
+/* ----------------------------- */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 20% 20%, rgba(163, 177, 138, 0.12), transparent 55%),
+  background:
+    radial-gradient(circle at 20% 20%, rgba(163, 177, 138, 0.12), transparent 55%),
     radial-gradient(circle at 80% 10%, rgba(218, 210, 188, 0.18), transparent 60%),
     radial-gradient(circle at 50% 80%, rgba(163, 177, 138, 0.1), transparent 55%);
   opacity: 0.8;
@@ -32,7 +45,40 @@ body::before {
   z-index: 0;
 }
 
+/* Garante que o conteúdo principal fique acima do fundo */
 #root {
   position: relative;
   z-index: 1;
+}
+
+/* ----------------------------- */
+/* 📱 Correções de layout mobile */
+/* ----------------------------- */
+
+/* Evita que seções ou imagens animadas ultrapassem a largura da viewport */
+section {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Ajusta elementos com blur ou efeitos que podem sair da tela */
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Previne "jumps" de layout no iOS Safari */
+* {
+  box-sizing: border-box;
+}
+
+/* ----------------------------- */
+/* 🌿 Toque de suavidade geral */
+/* ----------------------------- */
+
+/* Animações suaves e aparência consistente */
+button, a {
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent; /* remove flash azul no mobile */
 }

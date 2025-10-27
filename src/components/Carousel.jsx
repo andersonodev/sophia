@@ -2,7 +2,29 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
-const slides = [
+// 🔹 Importa automaticamente todas as imagens da pasta /src/imagens
+// Funciona em projetos Vite
+const importedImages = import.meta.glob('../../imagens/*.{jpg,jpeg,png}', { eager: true });
+
+// 🔹 Transforma os arquivos em slides
+const localSlides = Object.keys(importedImages).map((path) => {
+  const fileName = path.split('/').pop();
+  const title = fileName
+    .replace(/\.[^/.]+$/, '') // remove extensão
+    .replace(/[-_]/g, ' ') // troca _ e - por espaço
+    .replace(/\d+/g, '') // remove números
+    .trim();
+
+  return {
+    src: importedImages[path].default,
+    alt: title || 'Imagem local',
+    title: title ? title.charAt(0).toUpperCase() + title.slice(1) : 'Imagem local',
+    caption: 'Fotografia capturada no Sopa Sítio.',
+  };
+});
+
+// 🔹 Fallback (caso não haja imagens locais)
+const defaultSlides = [
   {
     src: 'https://images.unsplash.com/photo-1520854221050-0f4caff449fb?auto=format&fit=crop&w=1920&q=80',
     alt: 'Casal celebrando casamento ao ar livre',
@@ -24,21 +46,10 @@ const slides = [
     caption:
       'Louças artesanais, arranjos orgânicos e velas suspensas compõem a mesa de jantar de um casamento inesquecível.',
   },
-  {
-    src: 'https://images.unsplash.com/photo-1520854221050-0a4489a1a3ca?auto=format&fit=crop&w=1920&q=80',
-    alt: 'Noivos celebrando ao lado de amigos com sparkles',
-    title: 'Sparks of Love',
-    caption:
-      'Saída triunfal dos recém-casados, ladeados por sparklers que iluminam sorrisos e brindes de quem mais importa.',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1920&q=80',
-    alt: 'Mesa posta elegante em casamento ao ar livre',
-    title: 'Recepção de Autor',
-    caption:
-      'Mesa posta contemporânea com peças artesanais, composições em camadas e luz de velas a perder de vista.',
-  },
 ];
+
+// 🔹 Usa locais se existirem, senão o fallback
+const slides = localSlides.length > 0 ? localSlides : defaultSlides;
 
 const SLIDE_INTERVAL = 7000;
 const TRANSITION = 1.1;
@@ -93,7 +104,7 @@ export default function Carousel() {
   const activeSlide = useMemo(() => slides[index], [index]);
 
   return (
-    <section className="relative z-10 -mt-10 bg-offwhite sm:-mt-12 md:-mt-16">
+    <section className="relative z-10 -mt-10 bg-offwhite sm:-mt-12 md:-mt-16 overflow-x-hidden">
       <div className="mx-auto max-w-6xl px-4">
         <motion.div
           className="relative overflow-hidden rounded-[2.5rem] border border-sand/60 bg-offwhite shadow-soft"
@@ -104,6 +115,7 @@ export default function Carousel() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
+          {/* Imagem principal */}
           <AnimatePresence mode="wait" custom={direction}>
             <motion.img
               key={activeSlide.src}
@@ -116,9 +128,11 @@ export default function Carousel() {
               exit="exit"
               custom={direction}
               transition={{ duration: TRANSITION, ease: [0.25, 0.1, 0.25, 1] }}
+              style={{ zIndex: 0 }}
             />
           </AnimatePresence>
 
+          {/* Glow decorativo */}
           <AnimatePresence mode="wait">
             <motion.div
               key={`glow-${activeSlide.src}`}
@@ -128,19 +142,30 @@ export default function Carousel() {
               animate="center"
               exit="exit"
               transition={{ duration: TRANSITION }}
+              style={{ zIndex: 1 }}
             />
           </AnimatePresence>
 
+          {/* Gradiente escuro para legibilidade */}
           <motion.div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-offwhite via-offwhite/20 to-transparent"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
+            style={{ zIndex: 2 }}
           />
 
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-offwhite/70 via-transparent to-transparent" />
+          {/* Gradiente suave no topo */}
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-offwhite/70 via-transparent to-transparent"
+            style={{ zIndex: 3 }}
+          />
 
-          <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 px-8 pb-8">
+          {/* Texto + botões */}
+          <div
+            className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 px-8 pb-8"
+            style={{ zIndex: 5 }}
+          >
             <motion.div
               key={`caption-${activeSlide.src}`}
               className="max-w-xl text-left text-offwhite drop-shadow-lg"
@@ -158,7 +183,7 @@ export default function Carousel() {
               <button
                 type="button"
                 onClick={() => handleNavigation(-1)}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-offwhite/40 bg-offwhite/20 text-offwhite transition hover:bg-offwhite/40 hover:text-dark"
+                className="z-10 flex h-12 w-12 items-center justify-center rounded-full border border-offwhite/40 bg-offwhite/20 text-offwhite transition hover:bg-offwhite/40 hover:text-dark"
                 aria-label="Slide anterior"
               >
                 <HiOutlineArrowNarrowLeft size={22} />
@@ -166,7 +191,7 @@ export default function Carousel() {
               <button
                 type="button"
                 onClick={() => handleNavigation(1)}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-offwhite/40 bg-offwhite/20 text-offwhite transition hover:bg-offwhite/40 hover:text-dark"
+                className="z-10 flex h-12 w-12 items-center justify-center rounded-full border border-offwhite/40 bg-offwhite/20 text-offwhite transition hover:bg-offwhite/40 hover:text-dark"
                 aria-label="Próximo slide"
               >
                 <HiOutlineArrowNarrowRight size={22} />
@@ -174,7 +199,11 @@ export default function Carousel() {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 flex gap-2 px-8 pb-4">
+          {/* Barras de progresso */}
+          <div
+            className="absolute bottom-0 left-0 right-0 flex gap-2 px-8 pb-4"
+            style={{ zIndex: 6 }}
+          >
             {slides.map((slide, slideIndex) => {
               const isActive = slideIndex === index;
               return (
