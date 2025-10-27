@@ -1,6 +1,14 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import heroImage from '../../imagens/xvsophia0.jpg';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const images = [
+  require('../../imagens/xvsophia0.jpg'),
+  require('../../imagens/xvsophia01.jpg'),
+  require('../../imagens/xvsophia02.jpg'),
+  require('../../imagens/xvsophia03.jpg'),
+  require('../../imagens/xvsophia04.jpg'),
+  require('../../imagens/xvsophia05.jpg'),
+];
 
 const textVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -18,22 +26,32 @@ const floatingShapes = [
 ];
 
 export default function Hero() {
+  const [index, setIndex] = React.useState(0);
+  React.useEffect(() => {
+    const timer = setInterval(() => setIndex((i) => (i + 1) % images.length), 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section
       id="inicio"
       className="relative flex min-h-[80vh] items-center justify-center overflow-hidden rounded-b-[2.5rem] bg-offwhite scroll-mt-24"
     >
-      <motion.div
-        className="absolute inset-0"
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.4, ease: 'easeOut' }}
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={index}
+          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.04 }}
+          transition={{ duration: 1.1, ease: 'easeInOut' }}
+          style={{
+            backgroundImage: `url(${images[index]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+      </AnimatePresence>
       <div className="absolute inset-0 bg-gradient-to-t from-offwhite via-offwhite/85 to-offwhite/40" />
       <motion.div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(163,177,138,0.18)_0%,_transparent_60%)]"
@@ -42,9 +60,9 @@ export default function Hero() {
         transition={{ duration: 1.2 }}
       />
 
-      {floatingShapes.map((shape, index) => (
+      {floatingShapes.map((shape, idx) => (
         <motion.div
-          key={index}
+          key={idx}
           className={`pointer-events-none absolute h-40 w-40 rounded-full bg-earth/25 blur-3xl md:h-56 md:w-56 ${shape.className}`}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 0.7, scale: 1, y: [0, 18, 0] }}
@@ -130,5 +148,7 @@ export default function Hero() {
         </motion.div>
       </div>
     </section>
+  );
+}
   );
 }
